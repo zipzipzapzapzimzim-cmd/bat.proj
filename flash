@@ -1,0 +1,2 @@
+@echo off
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Add-Type -AssemblyName System.Windows.Forms;$f=New-Object System.Windows.Forms.Form;$f.FormBorderStyle='None';$f.TopMost=$true;$f.Bounds=[System.Windows.Forms.Screen]::PrimaryScreen.Bounds;$f.KeyPreview=$true;$f.add_KeyDown({$this.Close()});$t=New-Object System.Windows.Forms.Timer;$t.Interval=25;$t.Add_Tick({$f.BackColor=if($f.BackColor.ToString() -eq 'Color [Black]'){'White'}else{'Black'}});$t.Start();[void]$f.ShowDialog()"
